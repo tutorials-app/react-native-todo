@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Button, Text, StatusBar, StyleSheet } from 'react-native'
+import { View, ScrollView, Button, Text, StatusBar, StyleSheet } from 'react-native'
 
 import TodoInfo from '../containers/TodoInfo'
 
@@ -18,18 +18,18 @@ export default class DetailsScreen extends Component {
       const otherParam = navigation.getParam('otherParam', 'some default value');
       
       return (
-        <View style={styles.container}>
-          <Text style={styles.screenName}>Details Screen</Text>
-          <TodoInfo />
+          <View style={styles.container}>
+            <Text style={styles.screenName}>Details Screen</Text>
+            <TodoInfo />
 
-          <View style={styles.homeButton}>
-            <Button
-              title="Go to Home"
-              onPress={() => this.props.navigation.navigate('Home')}
-            />
+            <View style={styles.homeButton}>
+              <Button
+                title="Go to Home"
+                onPress={() => this.props.navigation.navigate('Home')}
+              />
+            </View>
+            <StatusBar barStyle="default" />
           </View>
-          <StatusBar barStyle="default" />
-        </View>
       );
     }
   }

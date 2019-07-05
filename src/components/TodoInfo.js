@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, Image } from 'react-native'
 
 export default class TodoInfo extends Component {
   
@@ -11,7 +11,15 @@ export default class TodoInfo extends Component {
         <View>
           <Text style={styles.title}>{ item.title }</Text>
         </View>
-        <Text style={styles.info}>{ item.info }</Text>
+        <View>
+          <Image  
+            style={{width: 'auto', height: 150}}
+            source={{uri: item.image}} 
+          />
+        </View>
+        <View>
+          <Text style={styles.info}>{ item.info }</Text>
+        </View>
       </View>
     )
   }
