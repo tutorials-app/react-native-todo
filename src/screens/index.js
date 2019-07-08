@@ -5,6 +5,7 @@ import DetailsScreen from './Details'
 import SignInScreen from './SignIn'
 import AuthLoadingScreen from './AuthLoading'
 import AddTodoScreen from './AddTodo'
+import EditTodoScreen from './EditTodo'
 
 export {
     HomeScreen,
@@ -13,5 +14,6 @@ export {
     ModalScreen,
     SignInScreen,
     AuthLoadingScreen,
-    AddTodoScreen
+    AddTodoScreen,
+    EditTodoScreen
 }

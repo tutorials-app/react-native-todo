@@ -3,7 +3,7 @@ import { View, FlatList, Text, Button, ScrollView, StyleSheet } from 'react-nati
 import { withNavigation } from 'react-navigation';
 
 import TodoItem from './TodoItem'
-import AddButton from './AddButton'
+import AddButton from './AbsoluteButton'
 
 class TodoList extends Component {
   
@@ -47,7 +47,7 @@ class TodoList extends Component {
                   )}
               </ScrollView>
           </View>
-          <AddButton onPress={this.onPressAdd}/>
+          <AddButton icon="add" bgColor="primary" onPress={this.onPressAdd}/>
         </View>
 
     )
@@ -56,13 +56,15 @@ class TodoList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 500,
+    flex: 1,
+    // height: 460,
     // backgroundColor: '#ddd',
     width: '100%'
   },
   todoList : {
     marginTop: 10,
-    height: 480,
+    paddingHorizontal: 10,
+    // height: 450,
     width: '100%',
   }
 })

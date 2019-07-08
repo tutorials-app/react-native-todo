@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, TextInput, Text, Button, StyleSheet } from 'react-native'
 
-import TodoAddForm from "../containers/TodoAddForm";
+import TodoEditForm from "../containers/TodoEditForm";
 
 export default class AddTodoScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,7 +16,7 @@ export default class AddTodoScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <TodoAddForm />
+        <TodoEditForm />
       </View>
     )
   }

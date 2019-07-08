@@ -19,7 +19,7 @@ export default class TodoItem extends Component {
           </View>
           <View style={styles.child2}>
             <TouchableHighlight style={[styles.btn, styles.btnDelete]} onPress={() => onPressDelete(item.id)}>
-              <Icon name="remove" size={20}></Icon>
+              <Icon name="close" size={20} color={colors.white}></Icon>
             </TouchableHighlight>
           </View>
         </View>
@@ -30,29 +30,30 @@ export default class TodoItem extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     height: 75,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: colors.white,
-    padding: 10,
+    padding: 20,
     marginVertical: 5,
-    borderWidth: 1,
+    // borderWidth: 1,
     borderRadius: 6,
     borderColor: '#ddd',
-    borderBottomWidth: 0,
+    // borderBottomWidth: 0,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 1,
+    shadowOffset: { width: 0, height: 15 },
+    shadowOpacity: 0.5,
     shadowRadius: 2,
-    elevation: 5,
+    zIndex: 11,
+    elevation: 1,
     marginLeft: 5,
     marginRight: 5,
-    marginTop: 10,
+    // marginTop: 10,
   },
   child1: {
-    width: '80%'
+    width: '90%'
   },
   child2: {
     width: '10%'
@@ -61,10 +62,14 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   btn: {
-    height: 30,
+    position: 'relative',
+    width: 25,
+    height: 25,
+    bottom: 30,
+    marginLeft: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 15,
   },
   btnDelete: {
     backgroundColor: colors.lightDanger,

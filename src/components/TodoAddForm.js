@@ -51,6 +51,9 @@ class TodoForm extends Component {
         <Input 
           label="Info" 
           name="info"
+          style={{height: 150, textAlignVertical: 'top'}}
+          multiline={true}
+          numberOfLines={4}
           value={this.state.info}
           onChange={this.onChange}
         />

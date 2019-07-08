@@ -23,11 +23,6 @@ export default class HomeScreen extends Component {
   
       return (
           <View style={styles.container}>
-            <Text style={styles.screenName}>Home Screen</Text>
-            <Button
-              title="Go to Details"
-              onPress={() => this.props.navigation.navigate('Details')}
-            />
             <TodoList />
           </View>
       );
@@ -38,8 +33,8 @@ export default class HomeScreen extends Component {
     container: { 
       flex:1, 
       alignItems: "center", 
-      padding: 10,
-      height: 2000
+      // padding: 10,
+      // height: 2000
     },
     screenName: {fontSize: 22, color: '#cccfcf', padding: 10}
   });

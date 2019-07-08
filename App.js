@@ -3,7 +3,12 @@ import { Platform, StyleSheet, Text, View, Button, Image, SafeAreaView, StatusBa
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator, createDrawerNavigator } from "react-navigation";
+import { 
+  createStackNavigator, 
+  createAppContainer, 
+  createBottomTabNavigator, 
+  createSwitchNavigator, 
+  createDrawerNavigator, } from "react-navigation";
 
 import { 
   HomeScreen, 
@@ -12,21 +17,26 @@ import {
   ModalScreen, 
   SignInScreen, 
   AuthLoadingScreen,
-  AddTodoScreen } from './src/screens';
+  AddTodoScreen,
+  EditTodoScreen } from './src/screens';
+
 import HomeIconWithBadge from './src/components/HomeIconWithBadge'
 
 import rootReducer from './src/reducers';
+
+import { colors } from './src/styles'
 
 const store = createStore(rootReducer);
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Details: DetailsScreen,
-  AddTodo: AddTodoScreen
+  AddTodo: AddTodoScreen,
+  EditTodo: EditTodoScreen,
 }, {
   initialRouteName:'Home', 
   cardStyle: {
-    // backgroundColor: "#eee"
+    backgroundColor: colors.lightWarning
   }
 });
 
