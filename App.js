@@ -36,7 +36,7 @@ const HomeStack = createStackNavigator({
 }, {
   initialRouteName:'Home', 
   cardStyle: {
-    backgroundColor: colors.lightWarning
+    backgroundColor: colors.light
   }
 });
 

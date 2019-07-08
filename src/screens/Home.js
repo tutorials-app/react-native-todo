@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Button, Text, StyleSheet, AsyncStorage } from 'react-native'
+import { View, ScrollView, Button, Text, StyleSheet, ImageBackground } from 'react-native'
 import TodoList from '../containers/TodoList'
 
 export default class HomeScreen extends Component {
@@ -7,13 +7,15 @@ export default class HomeScreen extends Component {
       const params = navigation.state.params || {};
   
       return {
-        title: 'Welcome to the app!',
+        title: 'TODO APP!',
         headerRight: (
-          <Button
-            onPress={() => navigation.navigate('MyModal')}
-            title="Info"
-            color="#000"
-          />
+          <View style={{marginRight: 10}}>
+            <Button
+              onPress={() => navigation.navigate('MyModal')}
+              title="Info"
+              color="#000"
+            />
+          </View>
         ),
         /* the rest of this config is unchanged */
       };
@@ -22,9 +24,11 @@ export default class HomeScreen extends Component {
     render() {
   
       return (
+        <ImageBackground source={require('../assets/images/background.jpg')} style={{width: '100%', height: '100%'}}>
           <View style={styles.container}>
             <TodoList />
           </View>
+        </ImageBackground>
       );
     }
   }

@@ -4,37 +4,113 @@
       "id": "1",
       "title": "Learning React",
       "image": "https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png",
-      "info": "A JavaScript library for building user interfaces"
+      "info": "A JavaScript library for building user interfaces",
+      "completed": true
     },
     {
       "id": "2",
       "title": "Learning React Native",
       "image": "https://www.inovex.de/blog/wp-content/uploads/2018/03/react-native.png",
-      "info": "Build native mobile apps using JavaScript and React"
+      "info": "Build native mobile apps using JavaScript and React",
+      "completed": true
     },
     {
       "id": "3",
       "title": "Develop React Native Mobile App",
       "image": "https://www.mytechlogy.com/upload/by_users/MindsterIN/141802112304mobileapplicationimage.png",
-      "info": "Using React React-Native Redux"
+      "info": "Using React React-Native Redux",
+      "completed": false
     },
     {
       "id": "4",
       "title": "Install Android Studio",
       "image": "https://9to5google.com/wp-content/uploads/sites/4/2015/10/android-versions.jpg?quality=82&strip=all&w=1024",
-      "info": "Android Studio provides the fastest tools for building apps on every type of Android device. Create complex layouts with ConstraintLayout by adding constraints from each view to other views and guidelines. Then preview your layout on any screen size by selecting one of various device configurations or by simply resizing the preview window."
+      "info": "Android Studio provides the fastest tools for building apps on every type of Android device. Create complex layouts with ConstraintLayout by adding constraints from each view to other views and guidelines. Then preview your layout on any screen size by selecting one of various device configurations or by simply resizing the preview window.",
+      "completed": false
     },
     {
       "id": "5",
       "title": "Implement Todo App",
       "image": "https://www.xdguru.com/wp-content/uploads/2017/10/todo-app-xd-1014x487.jpg",
-      "info": "What an awesome app create update delete todo list"
+      "info": "What an awesome app create update delete todo list",
+      "completed": true
     },
     {
       "id": "6",
       "title": "Clean Office",
       "image": "https://assets.website-files.com/5bebce837d9a8781524607d3/5bed093a9a01db72fc42e81d_office-cleaning-10.jpg",
-      "info": "Clean office on every Friday"
+      "info": "Clean office on every Friday",
+      "completed": false
+    },
+    {
+      "id": "7",
+      "title": "Learning TypeScript",
+      "image": "https://ramsatt.com/wp-content/uploads/2019/02/0_hhdjdEgUL_lT60VS.png",
+      "info": "Microsoft TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript.",
+      "completed": true
+    },
+    {
+      "id": "8",
+      "title": "Learning Python",
+      "image": "https://www.python.org/static/community_logos/python-logo-master-v3-TM.png",
+      "info": "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.",
+      "completed": false
+    },
+    {
+      "id": "9",
+      "title": "Learning React",
+      "image": "https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png",
+      "info": "A JavaScript library for building user interfaces",
+      "completed": false
+    },
+    {
+      "id": "10",
+      "title": "Learning React Native",
+      "image": "https://www.inovex.de/blog/wp-content/uploads/2018/03/react-native.png",
+      "info": "Build native mobile apps using JavaScript and React",
+      "completed": false
+    },
+    {
+      "id": "11",
+      "title": "Develop React Native Mobile App",
+      "image": "https://www.mytechlogy.com/upload/by_users/MindsterIN/141802112304mobileapplicationimage.png",
+      "info": "Using React React-Native Redux",
+      "completed": false
+    },
+    {
+      "id": "12",
+      "title": "Install Android Studio",
+      "image": "https://9to5google.com/wp-content/uploads/sites/4/2015/10/android-versions.jpg?quality=82&strip=all&w=1024",
+      "info": "Android Studio provides the fastest tools for building apps on every type of Android device. Create complex layouts with ConstraintLayout by adding constraints from each view to other views and guidelines. Then preview your layout on any screen size by selecting one of various device configurations or by simply resizing the preview window.",
+      "completed": false
+    },
+    {
+      "id": "13",
+      "title": "Implement Todo App",
+      "image": "https://www.xdguru.com/wp-content/uploads/2017/10/todo-app-xd-1014x487.jpg",
+      "info": "What an awesome app create update delete todo list",
+      "completed": true
+    },
+    {
+      "id": "14",
+      "title": "Clean Office",
+      "image": "https://assets.website-files.com/5bebce837d9a8781524607d3/5bed093a9a01db72fc42e81d_office-cleaning-10.jpg",
+      "info": "Clean office on every Friday",
+      "completed": false
+    },
+    {
+      "id": "15",
+      "title": "Learning TypeScript",
+      "image": "https://ramsatt.com/wp-content/uploads/2019/02/0_hhdjdEgUL_lT60VS.png",
+      "info": "Microsoft TypeScript is an open-source programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript, and adds optional static typing to the language. TypeScript is designed for development of large applications and transcompiles to JavaScript.",
+      "completed": false
+    },
+    {
+      "id": "16",
+      "title": "Learning Python",
+      "image": "https://www.python.org/static/community_logos/python-logo-master-v3-TM.png",
+      "info": "Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.",
+      "completed": false
     }
   ],
   "item": null

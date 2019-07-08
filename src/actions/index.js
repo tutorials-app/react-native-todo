@@ -22,10 +22,10 @@ export const getTodoById = (id) => ({
   }
 });
 
-export const updateTodoById = todo => ({
+export const updateTodoById = body => ({
   type: 'UPDATE_TODO_BY_ID',
   payload: {
-    todo
+    body
   }
 })
 

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import TodoList from '../components/TodoList';
 
-import { getTodoById, deleteTodoById } from '../actions';
+import { getTodoById, deleteTodoById, updateTodoById } from '../actions';
 
 const mapStateToProps = state => ({
   todos: state.todo.items
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     getTodoById,
-    deleteTodoById
+    deleteTodoById,
+    updateTodoById,
   }, dispatch)
 )
 

@@ -13,6 +13,12 @@ class TodoList extends Component {
     this.onPressDetails = this.onPressDetails.bind(this);
     this.onPressDelete = this.onPressDelete.bind(this);
     this.onPressAdd = this.onPressAdd.bind(this);
+    this.onPressCheckBox = this.onPressCheckBox.bind(this);
+
+  }
+  
+  onPressCheckBox(id, completed) {
+    this.props.updateTodoById({id, completed});
   }
   
   onPressDetails(id) {
@@ -42,6 +48,7 @@ class TodoList extends Component {
                       item={item} 
                       onPressDetails={this.onPressDetails}
                       onPressDelete={this.onPressDelete}
+                      onPressCheckBox={this.onPressCheckBox}
                     />
                     )
                   )}

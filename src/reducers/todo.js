@@ -20,19 +20,18 @@ export default function (state = initState, { type, payload }) {
       if (idx < 0) return state;
 
       state.item = state.items[idx];
-      console.log({item: state.item})
 
       return Object.assign({}, {...state, item: {...state.item}});
     }
     case 'UPDATE_TODO_BY_ID': {
-      const { todo } = payload;
-      if (!todo.id) return state;
+      const { body } = payload;
+      if (!body.id) return state;
 
-      const idx = state.items.findIndex(item => item.id === todo.id);
+      const idx = state.items.findIndex(item => item.id === body.id);
       if (idx < 0) return state;
 
-      copy(state.items[idx], todo);
-      if (state.item.id === todo.id) state.item = state.items[idx];
+      copy(state.items[idx], body);
+      if (state.item && state.item.id === body.id) state.item = state.items[idx];
 
       return Object.assign({}, { ...state, items: [...state.items], item: { ...state.item } });
     }
