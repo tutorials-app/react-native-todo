@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { View, ScrollView, Button, Text, StyleSheet, ImageBackground } from 'react-native'
+
+// import FilterBar from '../components/FilterBar'
 import TodoList from '../containers/TodoList'
 
 export default class HomeScreen extends Component {
@@ -26,7 +28,12 @@ export default class HomeScreen extends Component {
       return (
         <ImageBackground source={require('../assets/images/background.jpg')} style={{width: '100%', height: '100%'}}>
           <View style={styles.container}>
-            <TodoList />
+            <View>
+              {/* <FilterBar /> */}
+            </View>
+            <View>
+              <TodoList />
+            </View>
           </View>
         </ImageBackground>
       );

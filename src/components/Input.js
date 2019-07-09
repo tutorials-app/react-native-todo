@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TextInput, StyleSheet, ScrollView } from 'react-native'
 import { colors } from '../styles';
 
 export default class Input extends Component {
@@ -15,7 +15,7 @@ export default class Input extends Component {
     } = this.props;
 
     return (
-      <View style={styles.child}>
+      <ScrollView style={styles.child}>
         <View style={styles.label}>
           <Text style={styles.text}>{label}</Text>
         </View>
@@ -29,37 +29,30 @@ export default class Input extends Component {
             onChangeText={(text) => onChange(name, text)}
           />
         </View>
-      </View> 
+      </ScrollView> 
     )
   }
 }
 
 const styles = StyleSheet.create({
   child: {
-    flexDirection: 'row',
-    width: '100%',
-    // height: 50,
     marginVertical: 5,
-    alignItems: 'center',
-    backgroundColor: colors.lightWarning
   },
   label: {
-    width: '20%',
     fontSize: 16,
-    // backgroundColor: 'blue'
     textAlignVertical: 'top',
   },
   input: {
-    width: '80%',
-    // backgroundColor: 'red',
   },
   text: { 
     fontSize: 16,
-    // textAlignVertical: 'top',
   },
   textInput: {
-    backgroundColor: colors.light,
+    // backgroundColor: colors.light,
     height: 40,
     fontSize: 16,
+    borderWidth: 1,
+    borderColor: colors.secondaryLight,
+    borderRadius: 10
   }
 })

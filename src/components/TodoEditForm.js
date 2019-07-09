@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, Button, StyleSheet, Alert } from 'react-native'
+import { View, TextInput, Text, Button, StyleSheet } from 'react-native'
 import { withNavigation } from 'react-navigation';
 
 import Input from './Input'
+import { colors } from '../styles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class TodoForm extends Component {
   constructor(props) {
     super(props);
+    const todo = {
+      id: '',
+      title: '',
+      info: '',
+      image: ''
+    };
+    if(props.todo) { 
+      todo.id = props.todo.id;
+      todo.title = props.todo.image;
+      todo.info = props.todo.info;
+      todo.image = props.todo.image;
+    }
     this.state = {
-      id: props.todo.id,
-      title: props.todo.title,
-      image: props.todo.image,
-      info: props.todo.info
+      ...todo
     }
 
     this.onChange = this.onChange.bind(this); 
@@ -23,9 +34,7 @@ class TodoForm extends Component {
   }
 
   onSubmit() {
-    // Alert.alert(JSON.stringify(this.state))
     const {...todo} = this.state;
-    console.log({todo})
     this.props.updateTodo(todo);
     this.props.navigation.navigate('Details');
   } 
@@ -33,34 +42,36 @@ class TodoForm extends Component {
   render() { 
     return (
       <View style={styles.container}>
-        <Input 
-          label="ID" 
-          name="id" 
-          editable={false}
-          value={this.state.id}
-          // onChange={this.onChange}
-        />
-        <Input 
-          label="Title" 
-          name="title" 
-          value={this.state.title}
-          onChange={this.onChange}
-        />
-        <Input 
-          label="Image Url" 
-          name="image"
-          value={this.state.image}
-          onChange={this.onChange}
-        />
-        <Input 
-          label="Info" 
-          name="info"
-          style={{height: 150, textAlignVertical: 'top'}}
-          multiline={true}
-          numberOfLines={4}
-          value={this.state.info}
-          onChange={this.onChange}
-        />
+        <ScrollView>
+          <Input 
+            label="ID" 
+            name="id" 
+            editable={false}
+            value={this.state.id}
+            // onChange={this.onChange}
+          />
+          <Input 
+            label="Title" 
+            name="title" 
+            value={this.state.title}
+            onChange={this.onChange}
+          />
+          <Input 
+            label="Image Url" 
+            name="image"
+            value={this.state.image}
+            onChange={this.onChange}
+          />
+          <Input 
+            label="Info" 
+            name="info"
+            style={{height: 150, textAlignVertical: 'top'}}
+            multiline={true}
+            numberOfLines={4}
+            value={this.state.info}
+            onChange={this.onChange}
+          />
+        </ScrollView>
         
         <View style={styles.btnContainer}>
           <Button title="Submit" onPress={() => this.onSubmit()} />
@@ -73,7 +84,12 @@ class TodoForm extends Component {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    // alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: 10,
+  },
+  btnContainer: {
+    marginVertical: 10,
+    alignItems: 'flex-end',
   }
 })
 

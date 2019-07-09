@@ -25,5 +25,6 @@ export default class AddTodoScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10
   }
 })

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text, Button, StyleSheet, Alert } from 'react-native'
+import { View, TextInput, Text, Button, StyleSheet, ScrollView } from 'react-native'
 import { withNavigation } from 'react-navigation';
 
 import Input from './Input'
+import { colors } from '../styles';
 
 class TodoForm extends Component {
   constructor(props) {
@@ -15,11 +16,6 @@ class TodoForm extends Component {
 
     this.onChange = this.onChange.bind(this); 
     this.onSubmit = this.onSubmit.bind(this);
-    this.focusNextField = this.focusNextField.bind(this);
-  }
-  
-  focusNextField(id) {
-    this.inputs[id].focus();
   }
 
   onChange(name, text) {
@@ -27,7 +23,6 @@ class TodoForm extends Component {
   }
 
   onSubmit() {
-    // Alert.alert(JSON.stringify(this.state))
     this.props.addTodo(this.state);
     this.props.navigation.navigate('Home');
   } 
@@ -35,28 +30,29 @@ class TodoForm extends Component {
   render() { 
     return (
       <View style={styles.container}>
-        
-        <Input 
-          label="Title" 
-          name="title" 
-          value={this.state.title}
-          onChange={this.onChange}
-        />
-        <Input 
-          label="Image Url" 
-          name="image"
-          value={this.state.image}
-          onChange={this.onChange}
-        />
-        <Input 
-          label="Info" 
-          name="info"
-          style={{height: 150, textAlignVertical: 'top'}}
-          multiline={true}
-          numberOfLines={4}
-          value={this.state.info}
-          onChange={this.onChange}
-        />
+        <ScrollView>
+          <Input 
+            label="Title" 
+            name="title" 
+            value={this.state.title}
+            onChange={this.onChange}
+          />
+          <Input 
+            label="Image Url" 
+            name="image"
+            value={this.state.image}
+            onChange={this.onChange}
+          />
+          <Input 
+            label="Info" 
+            name="info"
+            style={{height: 150, textAlignVertical: 'top'}}
+            multiline={true}
+            numberOfLines={4}
+            value={this.state.info}
+            onChange={this.onChange}
+          />
+        </ScrollView>
         
         <View style={styles.btnContainer}>
           <Button title="Submit" onPress={() => this.onSubmit()} />
@@ -69,7 +65,14 @@ class TodoForm extends Component {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
-    // alignItems: 'center',
+    backgroundColor: colors.white,
+    borderRadius: 10
+  },
+  btnContainer: {
+    marginVertical: 10,
+    height: 30,
+    borderRadius: 5,
+    alignItems: 'flex-end'
   }
 })
 

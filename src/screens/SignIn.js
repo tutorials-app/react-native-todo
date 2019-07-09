@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
-import { View, Button, Text, AsyncStorage } from 'react-native'
+import { View, Button, Text } from 'react-native'
+
+import SignInForm from '../components/SignInForm'
 
 export default class SignInScreen extends Component {
-    static navigationOptions = {
-        title: 'Please sign in',
+  static navigationOptions = ({ navigation }) => {
+    const params = navigation.state.params || {};
+
+    return {
+      title: 'Sign In',
+      headerRight: (
+        <View style={{marginRight: 10}}>
+          <Button
+            onPress={() => navigation.navigate('SignUp')}
+            title="Sign up"
+          />
+        </View>
+      ),
+      /* the rest of this config is unchanged */
     };
+  };
     
     render() {
         return (
           <View>
-            <Button title="Sign in!" onPress={this._signInAsync} />
+            <SignInForm />
           </View>
         );
       }
-    
-    _signInAsync = async () => {
-        await AsyncStorage.setItem('userToken', 'abc');
-        this.props.navigation.navigate('App');
-    };
 }

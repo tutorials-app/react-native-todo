@@ -4,6 +4,7 @@ import { withNavigation } from 'react-navigation';
 
 import TodoItem from './TodoItem'
 import AddButton from './AbsoluteButton'
+import { colors } from '../styles';
 
 class TodoList extends Component {
   
@@ -40,20 +41,23 @@ class TodoList extends Component {
 
     return (
         <View style={styles.container}>
-            <View style={styles.todoList}>
-              <ScrollView>
-                  {this.props.todos.map((item, idx) => (
-                    <TodoItem 
-                      key={item.id} 
-                      item={item} 
-                      onPressDetails={this.onPressDetails}
-                      onPressDelete={this.onPressDelete}
-                      onPressCheckBox={this.onPressCheckBox}
-                    />
-                    )
-                  )}
-              </ScrollView>
+          <View style={styles.welcome}>
+            <Text style={styles.greeting}>Good Evening Mr.Banly</Text>
           </View>
+          <ScrollView>
+            <View style={styles.todoList}>
+              {this.props.todos.map((item, idx) => (
+                <TodoItem 
+                  key={item.id} 
+                  item={item} 
+                  onPressDetails={this.onPressDetails}
+                  onPressDelete={this.onPressDelete}
+                  onPressCheckBox={this.onPressCheckBox}
+                />
+                )
+              )}
+            </View>
+          </ScrollView>
           <AddButton icon="add" bgColor="primary" onPress={this.onPressAdd}/>
         </View>
 
@@ -64,9 +68,18 @@ class TodoList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // height: 460,
-    // backgroundColor: '#ddd',
-    width: '100%'
+  },
+  welcome: {
+    marginTop: 5,
+    height: 100,
+    backgroundColor: colors.primary,
+    marginBottom: -25,
+    alignItems: 'center',
+    borderRadius: 10
+  },
+  greeting: {
+    marginTop: 10,
+    fontSize: 22,
   },
   todoList : {
     marginTop: 10,

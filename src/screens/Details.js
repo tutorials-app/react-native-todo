@@ -3,6 +3,7 @@ import { View, ScrollView, Button, Text, StatusBar, StyleSheet } from 'react-nat
 
 import TodoInfo from '../containers/TodoInfo'
 import TodoEditForm from '../containers/TodoEditForm'
+import { colors } from '../styles';
 
 export default class DetailsScreen extends Component {
     static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -24,14 +25,9 @@ export default class DetailsScreen extends Component {
     }
   }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    alignItems: "center",
-  },
-  screenName: {fontSize: 22, color: '#cccfcf', padding: 10},
-  homeButton: {
-    marginTop: 10,
-    marginVertical: 10
-  }
-})
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      // padding: 10
+    },
+  })
