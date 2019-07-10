@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Button, Text } from 'react-native'
+import { View, Button, Text, StyleSheet } from 'react-native'
 
-import SignInForm from '../components/SignInForm'
+import SignInForm from '../containers/SignInForm'
 
 export default class SignInScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -23,9 +23,17 @@ export default class SignInScreen extends Component {
     
     render() {
         return (
-          <View>
+          <View style={styles.container}>
             <SignInForm />
           </View>
         );
       }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 15
+  }
+})

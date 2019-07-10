@@ -11,8 +11,10 @@ export default class AddButton extends Component {
     } = this.props;
 
     return (
-      <TouchableHighlight style={[styles.container, { backgroundColor: colors[bgColor] }]} onPress={() => this.props.onPress()}>
-        {/* <Text style={styles.name}>+</Text> */}
+      <TouchableHighlight 
+        style={[styles.container, { backgroundColor: colors[bgColor]}]} 
+        onPress={() => this.props.onPress()}
+        >
         <Icon name={icon} size={20} style={styles.name}></Icon>
       </TouchableHighlight>
     )

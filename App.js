@@ -33,6 +33,11 @@ const store = createStore(rootReducer);
 const AuthStack = createStackNavigator({
   SignIn: SignInScreen,
   SignUp: SignUpScreen,
+}, {
+  initialRouteName:'SignIn', 
+  cardStyle: {
+    backgroundColor: colors.light
+  }
 })
 
 const SettingStack = createStackNavigator({
@@ -57,7 +62,6 @@ const HomeStack = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   Home: HomeStack,
-  Auth: AuthStack,
   Trending: TrendingStack,
   Settings: SettingStack
 },{
@@ -90,7 +94,15 @@ const TabNavigator = createBottomTabNavigator({
   },
 })
 
-const AppContainer = createAppContainer(TabNavigator);
+const SwitchNavigation = createSwitchNavigator({
+  AuthLoading: AuthLoadingScreen,
+  Auth: AuthStack,
+  App: TabNavigator
+}, {
+  initialRouteName: 'App'
+})
+
+const AppContainer = createAppContainer(SwitchNavigation);
 
 export default class App extends Component {
   render () {

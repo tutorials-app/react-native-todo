@@ -1,20 +1,33 @@
+import { 
+  ADD_TODO, 
+  GET_TODOS, 
+  GET_TODO_BY_ID, 
+  UPDATE_TODO_BY_ID, 
+  DELETE_TODO_BY_ID,
+  SET_FILTER } from '../actions/types'
+
 import initState from '../store/todo.json';
 
 import { copy } from './helpers'
 
 export default function (state = initState, { type, payload }) {
   switch (type) {
-    case 'ADD_TODO': {
+    case ADD_TODO: {
       const { ...todo } = payload;
 
       state.items.push(todo);
 
       return Object.assign({}, {...state, items: [...state.items]});
     }
-    case 'GET_TODOS': {
+    case SET_FILTER: {
+      const { filter } = payload;
+
+      return Object.assign({},{ ...state, filter });
+    }
+    case GET_TODOS: {
       return Object.assign({}, state);
     }
-    case 'GET_TODO_BY_ID': {
+    case GET_TODO_BY_ID: {
       const { id } = payload;
       const idx = state.items.findIndex(item => item.id === id);
       if (idx < 0) return state;
@@ -23,7 +36,7 @@ export default function (state = initState, { type, payload }) {
 
       return Object.assign({}, {...state, item: {...state.item}});
     }
-    case 'UPDATE_TODO_BY_ID': {
+    case UPDATE_TODO_BY_ID: {
       const { body } = payload;
       if (!body.id) return state;
 
@@ -35,7 +48,7 @@ export default function (state = initState, { type, payload }) {
 
       return Object.assign({}, { ...state, items: [...state.items], item: { ...state.item } });
     }
-    case 'DELETE_TODO_BY_ID': {
+    case DELETE_TODO_BY_ID: {
       const { id } = payload;
       const idx = state.items.findIndex(item => item.id === id);
       if (idx < 0) return state;

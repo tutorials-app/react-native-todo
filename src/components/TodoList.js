@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
-import { View, FlatList, Text, Button, ScrollView, StyleSheet } from 'react-native'
+import { View, FlatList, Text, Button, ScrollView, StyleSheet, Animated } from 'react-native'
 import { withNavigation } from 'react-navigation';
 
 import TodoItem from './TodoItem'
 import AddButton from './AbsoluteButton'
+import FilterBar from './FilterBar'
 import { colors } from '../styles';
 
 class TodoList extends Component {
   
   constructor(props) {
     super(props);
-    console.log(this.props);
+
+    this.state = {
+      filter: 'all',
+    }
+    props.setFilter(this.state.filter);
+
     this.onPressDetails = this.onPressDetails.bind(this);
     this.onPressDelete = this.onPressDelete.bind(this);
     this.onPressAdd = this.onPressAdd.bind(this);
     this.onPressCheckBox = this.onPressCheckBox.bind(this);
-
+    this.onFilter = this.onFilter.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+    this.onEndScroll = this.onEndScroll.bind(this);
   }
   
   onPressCheckBox(id, completed) {
@@ -23,28 +31,41 @@ class TodoList extends Component {
   }
   
   onPressDetails(id) {
-    console.log({id});
     this.props.getTodoById(id);
     this.props.navigation.navigate('Details');
   }
 
   onPressDelete(id) {
-    console.log({id});
     this.props.deleteTodoById(id);
-    console.log({todos: this.props.todos});
   }
   onPressAdd() {
     this.props.navigation.navigate('AddTodo')
   }
 
-  render() {
+  onFilter(filter) {
+    this.props.setFilter(filter);
+    this.setState({filter});
+  }
 
+  handleScroll() {
+  }
+  onEndScroll() {
+
+  }
+  render() {
+    const { padding } = this.state;
     return (
         <View style={styles.container}>
           <View style={styles.welcome}>
             <Text style={styles.greeting}>Good Evening Mr.Banly</Text>
           </View>
-          <ScrollView>
+          <View style={styles.filter}>
+            <FilterBar filter={this.state.filter} onFilter={this.onFilter}/>
+          </View>
+          <ScrollView 
+            onMomentumScrollBegin={() => this.handleScroll()} 
+            scrollEventThrottle={50} 
+            onMomentumScrollEnd={() => this.onEndScroll()}>
             <View style={styles.todoList}>
               {this.props.todos.map((item, idx) => (
                 <TodoItem 
@@ -58,7 +79,7 @@ class TodoList extends Component {
               )}
             </View>
           </ScrollView>
-          <AddButton icon="add" bgColor="primary" onPress={this.onPressAdd}/>
+          <AddButton icon="add"  bgColor="primary" onPress={this.onPressAdd}/>
         </View>
 
     )
@@ -71,8 +92,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     marginTop: 5,
-    height: 100,
-    backgroundColor: colors.primary,
+    height: 80,
     marginBottom: -25,
     alignItems: 'center',
     borderRadius: 10
@@ -84,8 +104,11 @@ const styles = StyleSheet.create({
   todoList : {
     marginTop: 10,
     paddingHorizontal: 10,
-    // height: 450,
     width: '100%',
+  },
+  filter: {
+    height: 30,
+    paddingHorizontal: 15,
   }
 })
 

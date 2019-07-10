@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, ScrollView, Button, Text, StyleSheet, ImageBackground } from 'react-native'
 
-// import FilterBar from '../components/FilterBar'
 import TodoList from '../containers/TodoList'
+import SignOutButton from '../containers/SignOutButton'
 
 export default class HomeScreen extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -11,13 +11,7 @@ export default class HomeScreen extends Component {
       return {
         title: 'TODO APP!',
         headerRight: (
-          <View style={{marginRight: 10}}>
-            <Button
-              onPress={() => navigation.navigate('MyModal')}
-              title="Info"
-              color="#000"
-            />
-          </View>
+          <SignOutButton />          
         ),
         /* the rest of this config is unchanged */
       };
@@ -27,13 +21,8 @@ export default class HomeScreen extends Component {
   
       return (
         <ImageBackground source={require('../assets/images/background.jpg')} style={{width: '100%', height: '100%'}}>
-          <View style={styles.container}>
-            <View>
-              {/* <FilterBar /> */}
-            </View>
-            <View>
-              <TodoList />
-            </View>
+          <View style={styles.container}> 
+            <TodoList />
           </View>
         </ImageBackground>
       );

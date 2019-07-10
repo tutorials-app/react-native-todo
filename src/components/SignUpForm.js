@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, StyleSheet } from 'react-native'
+import { withNavigation } from 'react-navigation'
 
 import Input from './Input'
+import { colors } from '../styles'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default class SignUpForm extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
     
@@ -22,14 +25,14 @@ export default class SignUpForm extends Component {
   }
 
   onSubmit() {
-    const {...todo} = this.state;
-    // this.props.updateTodo(todo);
-    this.props.navigation.navigate('Home');
+    const {...user} = this.state;
+    this.props.signUp(user);
+    this.props.navigation.navigate('SignIn');
   } 
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <View>
           <Input 
             label="Username" 
@@ -46,12 +49,38 @@ export default class SignUpForm extends Component {
           <Input 
             label="Password" 
             name="password"
+            secureTextEntry={true}
             value={this.state.password}
             onChange={this.onChange}
           />
         </View>
-        <Button title="submit" onPress={() => this.onSubmit()}/>
+        <View style={styles.btnContainer}>
+          <TouchableOpacity style={styles.button} onPress={() => this.onSubmit()} >
+            <Text>Sign up</Text>
+          </TouchableOpacity>
+          {/* <Button title="submit" onPress={() => this.onSubmit()}/> */}
+        </View>
       </View>
     )
   }
 }
+
+export default withNavigation(SignUpForm);
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 15,
+    backgroundColor: colors.white,
+    borderRadius: 10
+  },
+  btnContainer: {
+    marginVertical: 10,
+    height: 30,
+  },
+  button: {
+    backgroundColor: colors.success,
+    padding: 10,
+    alignItems: 'center',
+    borderRadius: 15,
+  }
+})

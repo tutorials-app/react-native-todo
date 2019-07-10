@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, StyleSheet } from 'react-native'
 
-import SignUpForm from '../components/SignUpForm'
+import SignUpForm from '../containers/SignUpForm'
 
 export default class SignUp extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -23,9 +23,16 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <SignUpForm />
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 15
+  }
+})

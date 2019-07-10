@@ -28,7 +28,7 @@ class TodoInfo extends Component {
 
     return (
       <View style={styles.container}>
-        <EditButton icon="edit" bgColor="success" onPress={this.onPressEdit}/>
+        <EditButton icon="edit" bgColor="success" width={50} height={50} onPress={this.onPressEdit}/>
         <ScrollView style={styles.container}>
           <View style={styles.content}>
             <View style={styles.picture}>

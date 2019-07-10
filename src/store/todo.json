@@ -113,5 +113,6 @@
       "completed": false
     }
   ],
-  "item": null
+  "item": null,
+  "filter": "all"
 }
