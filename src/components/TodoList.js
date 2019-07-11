@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, FlatList, Text, Button, ScrollView, StyleSheet, Animated } from 'react-native'
+import { View, FlatList, Text, Button, ScrollView, StyleSheet, Animated, TouchableOpacity } from 'react-native'
 import { withNavigation } from 'react-navigation';
 
 import TodoItem from './TodoItem'
@@ -14,6 +14,10 @@ class TodoList extends Component {
 
     this.state = {
       filter: 'all',
+      padding: new Animated.Value(0),
+      width: new Animated.Value(50),
+      height: new Animated.Value(50),
+      plusSize: new Animated.Value(24),
     }
     props.setFilter(this.state.filter);
 
@@ -48,16 +52,57 @@ class TodoList extends Component {
   }
 
   handleScroll() {
+    const duration = 500;
+    Animated.parallel([
+      Animated.timing( this.state.padding, {
+          toValue: 25,
+          duration
+        }),
+      Animated.timing( this.state.plusSize, {
+          toValue: 0,
+          duration
+        }),
+      Animated.timing(this.state.width, {
+          toValue: 0,
+          duration
+        }),
+      Animated.timing(this.state.height, {
+          toValue: 0,
+          duration
+        })
+    ]).start();
   }
-  onEndScroll() {
 
+  onEndScroll() {
+    const duration = 500;
+    Animated.parallel([
+      Animated.timing(this.state.padding,{
+          toValue: 0,
+          duration
+        }),
+      Animated.timing(this.state.plusSize,{
+          toValue: 24,
+          duration
+        }),
+      Animated.timing(this.state.width,{
+          toValue: 50,
+          duration
+        }),
+      Animated.timing(this.state.height,{
+          toValue: 50,
+          duration
+        })
+    ]).start();
   }
+
   render() {
-    const { padding } = this.state;
+    const { padding, width, height, plusSize } = this.state;
+    const now = new Date();
+    const greeting = now.getHours() < 12 ? 'Good Morning!' : now.getHours() <= 17 ? 'Good Afternoon!': 'Good Evening';
     return (
         <View style={styles.container}>
           <View style={styles.welcome}>
-            <Text style={styles.greeting}>Good Evening Mr.Banly</Text>
+            <Text style={styles.greeting}>{greeting}</Text>
           </View>
           <View style={styles.filter}>
             <FilterBar filter={this.state.filter} onFilter={this.onFilter}/>
@@ -79,7 +124,15 @@ class TodoList extends Component {
               )}
             </View>
           </ScrollView>
-          <AddButton icon="add"  bgColor="primary" onPress={this.onPressAdd}/>
+          <Animated.View style={[styles.animate, { padding }]}>
+            <TouchableOpacity
+            onPress={() => this.onPressAdd()}
+            >
+              <Animated.View style={[styles.child, { width, height}]}>
+                <Animated.Text style={[styles.name, { fontSize: plusSize }]}>+</Animated.Text>
+              </Animated.View>
+            </TouchableOpacity>
+          </Animated.View>
         </View>
 
     )
@@ -109,6 +162,29 @@ const styles = StyleSheet.create({
   filter: {
     height: 30,
     paddingHorizontal: 15,
+  },
+  animate: {
+    position: 'absolute',
+    zIndex: 11,
+    right: 10,
+    bottom: 20,
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 1
+  },
+  child: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
+  },
+  name: {
+    // fontSize: 24,
+    color: 'white'
   }
 })
 

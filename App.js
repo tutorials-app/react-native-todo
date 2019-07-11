@@ -20,7 +20,8 @@ import {
   AuthLoadingScreen,
   AddTodoScreen,
   EditTodoScreen, 
-  TrendingScreen} from './src/screens';
+  TrendingScreen,
+  DrawerScreen } from './src/screens';
 
 import HomeIconWithBadge from './src/components/HomeIconWithBadge'
 
@@ -63,7 +64,8 @@ const HomeStack = createStackNavigator({
 const TabNavigator = createBottomTabNavigator({
   Home: HomeStack,
   Trending: TrendingStack,
-  Settings: SettingStack
+  Settings: SettingStack,
+  // Modal: ModalScreen
 },{
   initialRouteName: 'Home',
   defaultNavigationOptions: ({ navigation }) => ({
@@ -94,10 +96,18 @@ const TabNavigator = createBottomTabNavigator({
   },
 })
 
+const DrawerNavigation = createDrawerNavigator({
+  Home: TabNavigator,
+  Trending: TrendingStack,
+  Settings: SettingStack,
+}, {
+  contentComponent: DrawerScreen
+})
+
 const SwitchNavigation = createSwitchNavigator({
   AuthLoading: AuthLoadingScreen,
   Auth: AuthStack,
-  App: TabNavigator
+  App: DrawerNavigation
 }, {
   initialRouteName: 'App'
 })

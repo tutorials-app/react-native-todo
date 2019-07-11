@@ -8,6 +8,7 @@ import AuthLoadingScreen from './AuthLoading'
 import AddTodoScreen from './AddTodo'
 import EditTodoScreen from './EditTodo'
 import TrendingScreen from './Trending'
+import DrawerScreen from './Drawer'
 
 export {
     HomeScreen,
@@ -20,4 +21,5 @@ export {
     AddTodoScreen,
     EditTodoScreen,
     TrendingScreen,
+    DrawerScreen
 }
